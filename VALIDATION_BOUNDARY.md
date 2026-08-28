@@ -1,0 +1,12 @@
+# THE MACACHOR VALIDATION BOUNDARY
+
+MEASUREMENT CAN TEST DERIVATIONS.
+MEASUREMENT CANNOT DEFINE THE PRIMITIVE.
+
+EVIDENCE MAY FALSIFY A DERIVATION.
+EVIDENCE DOES NOT BECOME THE PRIMITIVE.
+
+---
+
+**Canonical Status:** Immutable Epistemological Axiom
+**Part of:** Macachor Scalar Field & Structural Convergence Framework v3.0
