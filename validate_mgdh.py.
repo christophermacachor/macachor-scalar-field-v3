@@ -1,1 +1,95 @@
 
+"""
+Computational Validation of the Macachor Scalar Field (v3.0)
+Verifies: (1) Free Energy Dissipation (dF/dt <= 0)
+          (2) Local Exponential Stability of the Lock State (psi = M)
+Author: Christopher Macachor
+Date: 2026-08-21
+License: CC-BY-4.0
+"""
+import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+
+# --- 1. Model Parameters (Axioms) ---
+M = (np.sqrt(5) - 1) / 2.0  # Macachor Lock Scalar
+D = 1.0                     # Diffusivity
+L = 2.0 * np.pi             # Domain length (compact boundaryless manifold S^1)
+N = 256                     # Spatial grid points
+dx = L / N
+x = np.linspace(0, L, N, endpoint=False)
+
+# --- 2. Spatial Operators (Periodic Boundary Conditions) ---
+# Second-order central difference for Laplacian with periodic wrap
+def laplacian(u):
+    return np.roll(u, -1) / dx**2 - 2 * u / dx**2 + np.roll(u, 1) / dx**2
+
+# --- 3. Dynamics (Axiom 5) ---
+def rhs(t, psi):
+    """Reaction-Diffusion RHS: dpsi/dt = D * Delta psi - (psi^2 - M^2) * psi"""
+    return D * laplacian(psi) - (psi**2 - M**2) * psi
+
+# --- 4. Observables (Free Energy & Coherence) ---
+def compute_free_energy(psi):
+    """F[psi] = int [ D/2 |grad psi|^2 + 1/4 (psi^2 - M^2)^2 ] dx"""
+    grad_psi = (np.roll(psi, -1) - np.roll(psi, 1)) / (2 * dx)
+    kinetic = 0.5 * D * np.sum(grad_psi**2) * dx
+    potential = 0.25 * np.sum((psi**2 - M**2)**2) * dx
+    return kinetic + potential
+
+def compute_coherence(psi):
+    """C[psi] = 1 - Var(rho) / <rho>^2, where rho = psi^2"""
+    rho = psi**2
+    mean_rho = np.mean(rho)
+    var_rho = np.mean((rho - mean_rho)**2)
+    return 1.0 - (var_rho / (mean_rho**2)) if mean_rho > 0 else 0.0
+
+# --- 5. Simulation Setup ---
+t_span = (0, 5.0)
+t_eval = np.linspace(t_span[0], t_span[1], 200)
+
+# Initial Condition: Lock state + small eigenmode perturbation (k=1)
+k = 1
+epsilon = 0.1
+psi0 = M + epsilon * np.cos(k * x)
+
+# --- 6. Integration ---
+print(f"Starting simulation. Theoretical decay rate for k={k}: alpha = {2*M**2 + D*k**2:.4f}")
+sol = solve_ivp(rhs, t_span, psi0, t_eval=t_eval, method='BDF', rtol=1e-6, atol=1e-8)
+
+# --- 7. Post-Processing & Validation ---
+F_history = [compute_free_energy(psi) for psi in sol.y.T]
+C_history = [compute_coherence(psi) for psi in sol.y.T]
+
+# Measure perturbation decay (amplitude of k=1 mode via FFT)
+perturbation_amplitude = [np.abs(np.fft.rfft(psi - M)[1]) * (2/N) for psi in sol.y.T]
+
+# --- 8. Output Results ---
+print("\n--- Validation Results ---")
+print(f"Initial Free Energy: {F_history[0]:.6f}")
+print(f"Final Free Energy:   {F_history[-1]:.6f}")
+print(f"Energy Monotonicity: {'PASS' if all(F_history[i] >= F_history[i+1] - 1e-8 for i in range(len(F_history)-1)) else 'FAIL'}")
+print(f"Final Coherence C:   {C_history[-1]:.6f} (Target: 1.0)")
+
+# Plotting
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+axes[0].plot(sol.t, F_history, 'b-', label='Free Energy F(t)')
+axes[0].set_title('Lyapunov Dissipation (dF/dt <= 0)')
+axes[0].set_xlabel('Time'); axes[0].set_ylabel('F'); axes[0].grid(True)
+
+axes[1].plot(sol.t, C_history, 'g-', label='Coherence C(t)')
+axes[1].axhline(1.0, color='k', linestyle='--', label='Target (C=1)')
+axes[1].set_title('Scalar Coherence Convergence')
+axes[1].set_xlabel('Time'); axes[1].set_ylabel('C'); axes[1].grid(True); axes[1].legend()
+
+axes[2].plot(sol.t, perturbation_amplitude, 'r-', label='Numerical Decay')
+theo_decay = epsilon * np.exp(-(2*M**2 + D*k**2) * sol.t)
+axes[2].plot(sol.t, theo_decay, 'k--', label=f'Theoretical (alpha={2*M**2 + D*k**2:.2f})')
+axes[2].set_yscale('log')
+axes[2].set_title('Local Exponential Stability')
+axes[2].set_xlabel('Time'); axes[2].set_ylabel('Perturbation Amplitude'); axes[2].grid(True); axes[2].legend()
+
+plt.tight_layout()
+plt.savefig('mgdh_validation_results.png', dpi=300)
+print("Plots saved to mgdh_validation_results.png")
