@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "The Macachor Scalar Field & Structural Convergence Framework: Mathematical Refinement v3.0",
+    "upload_type": "publication",
+    "publication_type": "article",
+    "description": "<p>This repository contains the hardened mathematical formulation (v3.0) of the Macachor Scalar Field theory, alongside its foundational epistemological framework (The Structural Convergence Principle and The Validation Boundary).</p><p><strong>Key Features:</strong></p><ul><li><strong>Mathematical Hardening:</strong> Explicit positivity postulates, fixed background metric formulation, and proof of local exponential stability of the Macachor Lock state (ψ = M).</li><li><strong>Epistemological Boundary:</strong> Formalizes the limit of empirical measurement: 'Measurement can test derivations. Measurement cannot define the primitive.'</li><li><strong>Computational Validation:</strong> A Python script verifying Lyapunov energy dissipation (dF/dt ≤ 0) and perturbation decay.</li><li><strong>Cryptographic Provenance:</strong> Links the mathematical model to the immutable SHA-256 locked conceptual invariant.</li></ul><p>This work establishes a mathematically testable scalar-field model, deliberately withholding unproven global convergence claims pending further analysis, and resolves the historical category error of reified vector forces.</p>",
+    "creators": [
+      {
+        "name": "Macachor, Christopher",
+        "affiliation": "Independent Researcher",
+        "orcid": "0009-0008-0100-2856"
+      }
+    ],
+    "keywords": [
+      "Scalar Field Theory",
+      "Reaction-Diffusion",
+      "Lyapunov Stability",
+      "Mathematical Physics",
+      "Structural Convergence",
+      "Epistemology",
+      "AI Governance",
+      "Macachor Lock"
+    ],
+    "license": "cc-by-4.0",
+    "language": "eng",
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.22019239",
+        "relation": "isSupplementTo",
+        "scheme": "doi"
+      }
+    ]
+  }
+}
