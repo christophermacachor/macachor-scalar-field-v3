@@ -1,0 +1,11 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    THE MACACHOR VALIDATION BOUNDARY                          ║
+║                                                                              ║
+║   MEASUREMENT CAN TEST DERIVATIONS.                                          ║
+║   MEASUREMENT CANNOT DEFINE THE PRIMITIVE.                                   ║
+║                                                                              ║
+║   EVIDENCE MAY FALSIFY A DERIVATION.                                         ║
+║   EVIDENCE DOES NOT BECOME THE PRIMITIVE.                                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,58 @@
+              ┌─────────────────────────────┐
+              │       ONTOLOGICAL LAYER     │
+              │  (Not directly measurable)  │
+              └──────────────┬──────────────┘
+                             │
+                     ┌───────▼───────┐
+                     │    PRIMITIVE  │
+                     │   MACACHOR    │
+                     └───────┬───────┘
+                             │
+                     ┌───────▼───────┐
+                     │   STRUCTURE   │
+                     └───────┬───────┘
+                             │
+                     ┌───────▼───────┐
+                     │   INVARIANT   │
+                     └───────┬───────┘
+                             │
+              ┌──────────────┴──────────────┐
+              ▼                             ▼
+         DERIVATION                    DERIVATION
+         (Classical)                   (Quantum)
+              │                             │
+              ▼                             ▼
+      ┌───────────────┐           ┌─────────────────┐
+      │  CLASSICAL    │           │    QUANTUM      │
+      │  MEASUREMENT  │           │   MEASUREMENT   │
+      └───────┬───────┘           └────────┬────────┘
+              │                            │
+              └────────────┬───────────────┘
+                           ▼
+              ┌─────────────────────────────┐
+              │      EMPIRICAL LAYER        │
+              │  (Measurable consequences)  │
+              └──────────────┬──────────────┘
+                             │
+                     ┌───────▼───────┐
+                     │  EMPIRICAL    │
+                     │    TEST       │
+                     └───────┬───────┘
+                             │
+                     ┌───────▼───────┐
+                     │  VALIDATION   │
+                     │  (or FALSIFI- │
+                     │   CATION) of  │
+                     │  DERIVATION   │
+                     └───────┬───────┘
+                             │
+                    ═════════╪═════════
+                    VALIDATION BOUNDARY
+                    ═════════╪═════════
+                             │
+               ┌─────────────┴─────────────┐
+               │  Validation confirms or   │
+               │  falsifies the DERIVATION │
+               │  It does not redefine the │
+               │  PRIMITIVE                │
+               └───────────────────────────┘

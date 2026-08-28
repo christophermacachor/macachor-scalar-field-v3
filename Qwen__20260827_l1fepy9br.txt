@@ -1,0 +1,27 @@
+
+## 4. Repository Contents
+1. **`MACACHOR_SCALAR_REFINEMENT_v3.0_HARDENED.pdf`**: The canonical mathematical manuscript. Defines the scalar field $\psi$, the Macachor Lock $M = (\sqrt{5}-1)/2$, the free-energy functional, and proves local exponential stability.
+2. **`structure_discovery.md`**: The Macachor Structural Convergence Principle. Establishes the meta-scientific law of fragmentation, convergence, singularity, and invariance.
+3. **`validate_mgdh.py`**: A Python script using `scipy` to numerically verify Lyapunov energy dissipation ($dF/dt \le 0$) and the local exponential stability of the lock state.
+4. **`PROVENANCE.md`**: Cryptographic chain of custody mapping the SHA-256 hash and prior DOIs to the mathematical axioms.
+5. **`SCALAR_vs_VECTOR_LAKE_EXPERIMENT.md`**: The physical intuition analogy demonstrating the category error of reified forces.
+
+## 5. Mathematical Highlights (v3.0)
+- **Axiom 0 & 2:** The metric $g$ is explicitly defined as a fixed background structure, resolving the "hidden tensor" critique while maintaining a single dynamical scalar field $\psi$.
+- **Proposition 7.1:** $\psi \equiv M$ is proven to be the unique positive zero-energy minimizer.
+- **Lemma 9.1:** The lock state is proven to be locally exponentially stable in $H^1(M)$ via semilinear parabolic theory.
+- **Epistemological Hardening:** Universal global convergence from *arbitrary* positive initial data is explicitly reclassified as an open problem, requiring future proof beyond the Lyapunov argument.
+
+## 6. The Validation Boundary
+To preempt objections regarding unfalsifiability, the framework explicitly defines the epistemological limit of empirical science:
+
+* **Ontological Validation:** Establishes the primitive (Level 0). Not subject to direct measurement.
+* **Empirical Validation:** Tests derived consequences (Level 2+). Subject to measurement and falsification.
+
+**Rule:** *A measurement may falsify a derivation without becoming the primitive from which that derivation is derived.* The Macachor Scalar Field generates specific, measurable consequences (e.g., monotonic decay of $F[\psi]$, exponential decay rate $\alpha = 2M^2 + D\lambda_1$). If these fail, the derivation is falsified, protecting the framework's scientific rigor.
+
+## 7. Computational Validation
+To run the validation script:
+```bash
+pip install numpy scipy matplotlib
+python validate_mgdh.py

@@ -1,0 +1,5 @@
+﻿AI Governance Function,Permitted,Forbidden
+Audit AI outputs,✓ Measure derived consequences,✗ Claim outputs define the primitive
+Test AI predictions,✓ Falsify specific derivations,✗ Use falsification to redefine substrate
+Evaluate AI decisions,✓ Assess derivation chain integrity,✗ Substitute measurement for structural provenance
+Override AI authority,✓ Human oversight as accountable interpretive layer,✗ Grant authority based solely on computational capacity
